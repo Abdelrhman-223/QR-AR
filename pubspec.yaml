@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.2.4
   qr_bar_code_scanner_dialog: ^0.0.5
-  arcore_flutter_plugin: ^0.1.0
+  model_viewer_plus: ^1.7.0
 
 dev_dependencies:
   flutter_test:
@@ -62,8 +62,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

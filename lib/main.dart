@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qr_ar/ar_viewer/ar_viewer.dart';
+import 'package:qr_ar/ar_viewer/model_viewer.dart';
 import 'package:qr_ar/qr_scanner/qr_function.dart';
 import 'package:qr_ar/widgets/button.dart';
 
@@ -13,13 +13,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
+    return const MaterialApp(
+      title: 'QR-AR',
+      home: MyHomePage(),
     );
   }
 }
@@ -40,22 +36,26 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CustomButton(
-                buttonFunction: () {
-                  setState(() {
-                    qrScanner(context);
-                  });
-                },
-                buttonTitle: "QR"),
+              buttonFunction: () {
+                setState(() {
+                  qrScanner(context);
+                });
+              },
+              buttonTitle: "QR",
+            ),
             CustomButton(
-                buttonFunction: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => HelloWorld(),
+              buttonFunction: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const FurnitureModelViewer(
+                      modelPathForAndroid: 'assets/Koltuk.glb',
+                      modelPathForIos: 'assets/Koltuk.usdz',
                     ),
-                  );
-                  print("////ar button");
-                },
-                buttonTitle: "AR"),
+                  ),
+                );
+              },
+              buttonTitle: "AR",
+            ),
           ],
         ),
       ),
